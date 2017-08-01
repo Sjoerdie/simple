@@ -44,7 +44,7 @@ function fish_prompt -d "Simple Fish Prompt"
     if set -q VIRTUAL_ENV
         set -l virtual_env (basename "$VIRTUAL_ENV")
         __print_color ffffff " with "
-        __print_color f46f00 "($virtual_env)"
+        __print_color cc7832 "$virtual_env"
     end
 
     # Git
