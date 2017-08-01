@@ -27,7 +27,7 @@ function fish_prompt -d "Simple Fish Prompt"
     # User
     #
     set -l user (id -un $USER)
-
+    __print_color FF7676 "$user "
 
     # Host
     #
