@@ -19,10 +19,14 @@ end
 function fish_prompt -d "Simple Fish Prompt"
     echo -e ""
 
+    if set -q VIRTUAL_ENV
+        set -l virtual_env (basename "$VIRTUAL_ENV"
+        __print_color FF7676 "$virtual_env "
+    end
+
     # User
     #
     set -l user (id -un $USER)
-    __print_color FF7676 "$user"
 
 
     # Host
