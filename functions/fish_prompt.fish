@@ -43,6 +43,7 @@ function fish_prompt -d "Simple Fish Prompt"
 
     if set -q VIRTUAL_ENV
         set -l python_version (python --version ^| tr -d '\n')
+        set -l python_version ($python_version | perl -pe 'if(($_)=/([0-9]+([.][0-9]+)+)/){$_.="\n"}')
         set -l virtual_env (basename "$VIRTUAL_ENV")
         __print_color ffffff " with "
         __print_color cc7832 "$virtual_env ($python_version)"
