@@ -42,7 +42,7 @@ function fish_prompt -d "Simple Fish Prompt"
     __print_color 5DAE8B "$pwd_string"
 
     if set -q VIRTUAL_ENV
-        set -l python_version (python --version)
+        set -l python_version (python --version ^| tr -d '\n')
         set -l virtual_env (basename "$VIRTUAL_ENV")
         __print_color ffffff " with "
         __print_color cc7832 "$virtual_env ($python_version)"
