@@ -3,9 +3,6 @@
 #
 # MIT © Sota Yamashita
 
-set -l __bobthefish_superscript_glyph       \u00B9 \u00B2 \u00B3
-set -l __bobthefish_virtualenv_glyph        \u25F0
-
 function __git_upstream_configured
     git rev-parse --abbrev-ref @"{u}" > /dev/null 2>&1
 end
@@ -45,13 +42,7 @@ function fish_prompt -d "Simple Fish Prompt"
     __print_color 5DAE8B "$pwd_string"
 
     if set -q VIRTUAL_ENV
-        version=""
-        switch (python --version ^| tr '\n' ' ')
-            case 'Python 2*'
-                version=$__bobthefish_superscript_glyph[2]
-            case 'Python 3*'
-                version=$__bobthefish_superscript_glyph[3]
-        end
+        version=(python --version ^| tr '\n' ' ')
         set -l virtual_env (basename "$VIRTUAL_ENV")
         __print_color ffffff " with "
         __print_color cc7832 "$virtual_env $version"
